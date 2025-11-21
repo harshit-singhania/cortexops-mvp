@@ -20,8 +20,9 @@ class Settings(BaseSettings):
     REDIS_HOST: str
     REDIS_PORT: int = 6379
 
-    # OpenAI
+    # OpenAI / OpenRouter
     OPENAI_API_KEY: Optional[str] = None
+    OPENROUTER_API_KEY: Optional[str] = None
 
     def __init__(self, **data):
         super().__init__(**data)

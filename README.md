@@ -16,16 +16,17 @@ As organizations integrate microservices and AI agents, system complexity outpac
 ## Architecture
 
 - **Backend**: FastAPI + PostgreSQL + Redis + Docker
-- **LLM Layer**: OpenAI GPT-4/5 via LangChain
+- **LLM Layer**: OpenRouter (GPT-3.5/4, Llama 3) via LangChain
+- **Embeddings**: FastEmbed (Local, BGE-small)
 - **Vector DB**: Qdrant
-- **Frontend**: Next.js (Planned)
+- **Frontend**: Next.js + Tailwind CSS + Shadcn/UI
 
 ## Getting Started
 
 ### Prerequisites
 
 - Docker & Docker Compose
-- OpenAI API Key
+- OpenRouter API Key
 
 ### Installation
 
@@ -44,7 +45,7 @@ As organizations integrate microservices and AI agents, system complexity outpac
     POSTGRES_DB=cortexops
     QDRANT_HOST=qdrant
     REDIS_HOST=redis
-    OPENAI_API_KEY=your_key_here
+    OPENROUTER_API_KEY=your_openrouter_key_here
     ```
 
 3.  Run with Docker Compose:
@@ -52,7 +53,16 @@ As organizations integrate microservices and AI agents, system complexity outpac
     docker compose up -d --build
     ```
 
-4.  Access the API:
+4.  Start the Frontend:
+    ```bash
+    cd frontend
+    npm install
+    npm run build
+    npm start
+    ```
+
+5.  Access the Application:
+    - **Dashboard**: http://localhost:3000
     - API Docs: http://localhost:8000/docs
     - Qdrant Dashboard: http://localhost:6333/dashboard
 
